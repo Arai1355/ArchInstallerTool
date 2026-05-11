@@ -140,12 +140,12 @@ chmod +x /root/ArchInstallerTool.sh
 After publishing the repository, you can download the raw file:
 
 ```bash
-curl -fL https://raw.githubusercontent.com/USER/REPO/main/ArchInstallerTool.sh -o ArchInstallerTool.sh
+curl -fL https://raw.githubusercontent.com/Arai1355/ArchInstallerTool/main/ArchInstallerTool.sh -o ArchInstallerTool.sh
 chmod +x ArchInstallerTool.sh
 ./ArchInstallerTool.sh
 ```
 
-Replace `USER` and `REPO` with the real GitHub username and repository name.
+Repository page: <https://github.com/Arai1355/ArchInstallerTool>
 
 ## Method 5: Clone the Repository With Git
 
@@ -192,18 +192,16 @@ pacman -Sy git
 Clone the repository:
 
 ```bash
-git clone https://github.com/USER/REPO.git
-cd REPO
+git clone https://github.com/Arai1355/ArchInstallerTool.git
+cd ArchInstallerTool
 chmod +x ArchInstallerTool.sh
 ./ArchInstallerTool.sh
 ```
 
-Replace `USER` and `REPO` with the real GitHub username and repository name.
-
 You can also clone a specific branch:
 
 ```bash
-git clone -b BRANCH_NAME https://github.com/USER/REPO.git
+git clone -b BRANCH_NAME https://github.com/Arai1355/ArchInstallerTool.git
 ```
 
 ## Verify the Script Before Running
