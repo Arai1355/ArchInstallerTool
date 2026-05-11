@@ -140,12 +140,12 @@ chmod +x /root/ArchInstallerTool.sh
 بعد نشر المستودع على GitHub يمكنك تحميل الملف الخام:
 
 ```bash
-curl -fL https://raw.githubusercontent.com/USER/REPO/main/ArchInstallerTool.sh -o ArchInstallerTool.sh
+curl -fL https://raw.githubusercontent.com/Arai1355/ArchInstallerTool/main/ArchInstallerTool.sh -o ArchInstallerTool.sh
 chmod +x ArchInstallerTool.sh
 ./ArchInstallerTool.sh
 ```
 
-استبدل `USER` و`REPO` باسم المستخدم واسم المستودع الحقيقي.
+صفحة المستودع: <https://github.com/Arai1355/ArchInstallerTool>
 
 ## الطريقة الخامسة: تحميل المستودع باستخدام Git
 
@@ -192,18 +192,16 @@ pacman -Sy git
 حمّل المستودع:
 
 ```bash
-git clone https://github.com/USER/REPO.git
-cd REPO
+git clone https://github.com/Arai1355/ArchInstallerTool.git
+cd ArchInstallerTool
 chmod +x ArchInstallerTool.sh
 ./ArchInstallerTool.sh
 ```
 
-استبدل `USER` و`REPO` باسم المستخدم واسم المستودع الحقيقي.
-
 ويمكنك تحميل فرع معين:
 
 ```bash
-git clone -b BRANCH_NAME https://github.com/USER/REPO.git
+git clone -b BRANCH_NAME https://github.com/Arai1355/ArchInstallerTool.git
 ```
 
 ## تحقق من السكربت قبل تشغيله
