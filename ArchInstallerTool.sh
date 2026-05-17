@@ -898,7 +898,7 @@ select_gpu_driver() {
         "Auto" "Use detected GPU drivers" \
         "Intel" "Mesa, Vulkan Intel, media driver" \
         "AMD" "Mesa and Vulkan Radeon" \
-        "NVIDIA DKMS" "nvidia-dkms with matching kernel headers" \
+        "NVIDIA Open DKMS" "nvidia-open-dkms with matching kernel headers" \
         "Virtual Machine" "Virtual guest graphics tools" \
         "None" "Do not add GPU-specific packages"
 
@@ -923,7 +923,7 @@ get_gpu_packages() {
             packages=("mesa" "vulkan-radeon" "libva-mesa-driver" "mesa-vdpau")
             ;;
         "nvidia")
-            packages=("nvidia-dkms" "nvidia-utils" "nvidia-settings" "dkms")
+            packages=("nvidia-open-dkms" "nvidia-utils" "nvidia-settings" "dkms")
             ;;
         "virtual")
             packages=("mesa" "xf86-video-vmware" "virtualbox-guest-utils")
@@ -1040,23 +1040,24 @@ validate_packages() {
     print_section "Package Validation"
 
     local packages=("$@")
-    local status=0
+    local missing=()
+    local pkg
 
     info "Refreshing package database..."
     pacman -Sy 2>&1 | tee -a "$LOG_FILE"
 
     info "Checking package availability before installation..."
-    set +e
-    pacman -Sp --needed --noconfirm "${packages[@]}" &>"${CONFIG_DIR}/package_check.log"
-    status=$?
-    set -e
 
-    cat "${CONFIG_DIR}/package_check.log" >> "$LOG_FILE"
+    for pkg in "${packages[@]}"; do
+        if ! pacman -Si "$pkg" &>/dev/null; then
+            missing+=("$pkg")
+        fi
+    done
 
-    if [ "$status" -ne 0 ]; then
-        error "Package validation failed. Pacman could not resolve all selected packages."
-        grep -E "target not found|could not find|error:" "${CONFIG_DIR}/package_check.log" >&2 || true
-        error "Please choose a smaller profile or move unavailable packages to post_install.sh."
+    if [ ${#missing[@]} -gt 0 ]; then
+        error "Package validation failed. Missing repository packages:"
+        printf '  - %s\n' "${missing[@]}" >&2
+        error "Move unavailable packages to post_install.sh or choose a smaller profile."
         exit 1
     fi
 
