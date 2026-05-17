@@ -17,7 +17,7 @@ ArchInstallerTool is an interactive Bash installer for Arch Linux. It is designe
 - Filesystem selection: `ext4`, `btrfs`, or `xfs`.
 - Btrfs subvolumes: `@`, `@home`, and `@snapshots`.
 - Automatic simple partitioning and LVM partitioning.
-- GPU driver selection and detection for Intel, AMD, NVIDIA DKMS, and virtual machines.
+- GPU driver selection and detection for Intel, AMD, NVIDIA Open DKMS, and virtual machines.
 - Arabic and English locale options, including `ar_IQ.UTF-8`.
 - Username and hostname validation.
 - Package validation before disk formatting.
