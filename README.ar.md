@@ -17,7 +17,7 @@ English documentation: [README.md](README.md)
 - اختيار نظام الملفات: `ext4`, `btrfs`, `xfs`.
 - دعم Btrfs subvolumes: `@`, `@home`, `@snapshots`.
 - تقسيم تلقائي بسيط وتقسيم LVM.
-- كشف GPU واختيار تعريفات Intel, AMD, NVIDIA DKMS, Virtual Machine.
+- كشف GPU واختيار تعريفات Intel, AMD, NVIDIA Open DKMS, Virtual Machine.
 - دعم locale إنجليزي وعربي، ومنها `ar_IQ.UTF-8`.
 - التحقق من صحة اسم المستخدم واسم الجهاز.
 - فحص الحزم قبل تهيئة القرص.
